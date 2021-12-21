@@ -38,7 +38,7 @@ def gabor_filtering(gray, k_size=111, sigma=10, gamma=1.2, lmb=10, psi=0, angle=
 def gabor_process(img, params):
     h, w, _ = img.shape
     gray = bgr_2_gray(img).astype(np.float32)
-    angles = np.linspace(0, 180, 12)
+    angles = np.linspace(0, 180, 4)
 
     plt.subplots_adjust(left=0, right=1, top=1, bottom=0, hspace=0, wspace=0.2)
     out = np.zeros([h, w], dtype=np.float32)
@@ -55,8 +55,8 @@ def gabor_process(img, params):
     return out
 
 
-for i in range(5):
-    img = cv2.imread('1.jpg').astype(np.float32)
+for i in range(6):
+    img = cv2.imread('3.jpg').astype(np.float32)
     out = gabor_process(img, input().split())
 
     cv2.imwrite(f'out_{i}.jpg', out)
